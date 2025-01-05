@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Fundamentos</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"
+        type="image/x-icon">
+        <style>
+            .galeria {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin: 0 auto;
+                max-width: 80%;
+            }
+            .galeria div {
+                text-align: center;
+            }
+            
+            img {
+                display: block;
+                margin: auto;
+            }
+        </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Galería de imagenes</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <input type="text" id="imagenURL" placeholder="URL de la imagen">
+        <input type="text" id="pieFoto" placeholder="Pie de foto">
+        <button onclick="agregaImagen()">Agregar Imagen</button>
+    </div>
+
+    <div class="galeria" id="galeriaImagenes">
+        <div>
+            <img src="imgs/paisaje1.jpg" alt="Imagen 1" width="300" height="250">
+            <p>Pie de foto Imagen 1</p>
+        </div>
+        <div>
+            <img src="imgs/paisaje2.jpg" alt="Imagen 2" width="300" height="250">
+            <p>Pie de foto Imagen 2</p>
+        </div>
+        <div>
+            <img src="imgs/paisaje3.jpg" alt="Imagen 3" width="300" height="250">
+            <p>Pie de foto Imagen 3</p>
+        </div>
+        <div>
+            <img src="imgs/paisaje4.jpg" alt="Imagen 4" width="300" height="250">
+            <p>Pie de foto Imagen 4</p>
+        </div>
+    </div>
+    <script src="js/AgregaImagen.js"></script>
+</body>
+</html>

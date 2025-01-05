@@ -1,0 +1,487 @@
+REACT
+
+INTRODUCCION
+
+Es una librería
+
+1 Componentes reutilizables
+2 JSX = JavaScript Xml
+3 Virtual DOM (tiene dom original y el el que tiene en memoria y esta solo actualizando no todo sino solamente lo poco que va cambiando)
+4 Data binding unidirectional = va siempre en una dirección va siempre de etiquetas padres a hijas y de hijas a nietas
+5 Extensa comunidad... no todos son rubios jeje, tiene muchas bibliotecas y documentación robustas, muchas personas lo utilizan entonces se obtiene muy buen soporte
+
+programas que se necesitan
+
+    * Visual Studio Code
+    * Node.js
+    * Git (Controlar las versiones)
+
+Plugings necesarios en VSCode
+
+    * JavaScript (ES6) code snippets
+    * Live server
+
+FUNDAMENTOS
+
+    * JavaScript vs React
+
+ Facilidad de implementar las cosas
+
+PRIMEROS PASOS
+
+ 	codigo esta en curso React
+
+ 	Para crear una aplicacion react hay que dar estos pasos
+    
+ 	   * Abrir la terminal de VSC
+ 	   * dar en la consola(CMD) este comando sin comillas en lineas separadas
+    
+ 	       * "npx create-react-app nombre" siendo nombre el nombre que contiene la carpeta que tiene toda la logica dentro
+
+        En caso de que no funcione fijarse en el error que aparece en la web...
+        ir en la consola a la direccion donde esta la aplicacion para instalar dentro de ella
+        
+        probar primero de uno en uno estos pasos dentro del directorio de la app dependiendo de lo que diga el navegador
+		
+		* Set-ExecutionPolicy -Scope CurrentUser unrestricted
+	
+            * npm install --save-dev ajv@^7
+            * npm install --save-dev web-vitals
+            * npm install @mui/material --force
+            * npm install @material-ui/core --legacy-peer-deps
+            * npm i @testing-library/react-native@latest react-test-renderer --save --legacy-peer-deps
+            * npm i react-speech-kit --legacy-peer-deps 
+            * npm install @material-ui/core
+            * npm install @material-ui/core @material-ui/icons
+            * npm install -g npm-check-updates
+            * ncu -u
+            * npm install
+
+ 	   el esqueleto de una app de react contiene estos folders
+
+		* node_modules
+		* public
+       	 	* src 
+        
+       	   y los siguientes archivos
+        
+        	* .gitignore
+        	* package-look.json
+	        * package.json
+
+	Para que la aplicacion este en ejecucion debemos hacer lo siguientes    
+    
+   	digitamos el siguiente comando sin comillas en consola(CMD) "npm start"
+
+   	Para detener el servidor y que no quede en segundo plano consumiendo recursos, damos sin comillas posicionados en la consola "Ctrl + C"
+
+
+
+Que es CRA, Vite y Next
+
+CRA
+
+        * Herramienta muy popular y con respaldo oficial de Facebook para configurar nuevos proyectos de react sin configuracion
+        * Proporciona un entorno preconfigurado con una configuracion prederterminada (Para inicios rapidos)
+        * Incluye Webpack, Babel y ESlint, entre otros. Esto permite a los desarrolladores centrarse en escribir código en lugar de lidiar con configuraciones de compilacion complejas
+        
+Vite
+
+        * Herramienta de compilacion mas nueva que ha ganado un impulso significativo en la comunidad de JavaScript
+        * Diseño pensado en la velocidad y ofrece un enfoque de desarrollo diferente
+        * Vite aprovecha las funciones modernas del navegador, como los módulos ES, para ofrecer una experiencia de desarrollo extremadamente rápida
+
+CRA vs VITE
+
+        * CRA
+            - Compatibilidad y estabilidad
+            - Menor configuracion (Caja cerrada = evitar muchas configuraciones personalizadas, para las personas que no saben mucho aún)
+            - Comunidad de soporte, muchos plugings y extensiones, aparte del monton de personas que conocen sobre el tema
+            - Integracion con herramientas de desarrollo
+            - Conocimientos existentes (Mucha gente en esto)
+            - Conservadurismo
+
+        * Vite 
+            - Inicio y recargas más rápidas (los modulos son iniciados por el navegador)
+            - Menor uso de recursos
+            - Configuracion más flexible
+            - Soporte integrado para TypeScript, JSX, CSS
+            - Soporte Hot Module Replacement(HMR) Mejorado, actualizar en caliente
+            - Migración y actualización más fácil
+            - Mejor preparado para el futuro que CRA
+
+
+PRIMEROS PASOS EN JSX
+
+	Creamos la aplicación igual, pero le llamamos "segunda_aplicacion" sin comillas
+	corremos la aplicación igual que las otras, nos vamos a la dirección en la terminal
+	y damos "npm start" sin comillas
+
+	si aparece el error:
+
+		Cannot find module 'ajv/dist/compile/codegen'
+
+	entonces instalaremos en la consola lo siguiente:
+	
+		npm install --save-dev ajv@^7 
+
+	Si el servidor esta apagado y queremos iniciar el proyecto para los que son alérgicos a los comandos podemo correrlo de tres formas
+
+		1 dando el comando "npm start" sin comillas
+		2 desde el archivo interno del proyecto creado llamado package.json si damos doble clic nos aparecerá a la derecha casi en la linea 10 un botón play que dice debug
+		3 en el árbol de jerarquía a la izquierda arriba del nombre esta la palabra explorer en ingles o explorador en español ahí tenemos 3 puntitos a la derecha, damos ahí y activamos NPM Scripts, si no         		  		  aparece la opción deberíamos instalar "npm install" sin comillas en la consola, en el directorio raíz del proyecto de la app...
+		  …Una vez que activamos esto, abajo nos aparecerá NPM Scripts y si lo desplegamos nos aparece las mismas que aparecen en el package.json
+	
+
+		para empezar abrimos el folder src y nos vamos al archivo app.js, borramos todo lo que aparece dentro de la función app, menos los corchetes de apertura y cierre "{ }"
+		App es el componente principal, app es el main de react… donde empieza a correr cualquier aplicación de react. cuando borremos todo qudara el código así
+
+---------------------------
+                          |
+import './App.css';
+
+function App() {
+  
+  
+}
+
+export default App;
+                          |
+---------------------------
+		
+
+		Si salvamos el archivo y damos recargar a la pagina esta se vera en blanco, esto ya que queremos mostrar lo que nosotros queremos entonces tendremos que programar en JSX,
+		JavaScript puro y HTML no se pueden combinar... pero en JSX si... algo así se vería
+
+---------------------------
+                          |
+import './App.css';
+
+function App() {
+
+    const elemento=<h1>Hola Mundo</h1>
+    return <div>{elemento}</div>
+}
+
+export default App;
+                          |
+---------------------------
+
+		Si recargamos la pagina esta ahora contiene un Hola Mundo en grande arriba a la izquierda
+		En caso de que se quiera devolver varios elementos se tiene que tener un único padre para devolver un elemento
+		
+STYLES EN REACT
+		
+		tenemos un archivo que se llama App.css, si queremos ver centrado el titulo entonces haríamos un código así en App.css
+
+---------------------------
+                          |
+.centrarTitulo {
+  text-align: center;
+}
+                          |
+---------------------------
+		
+		y en App.js lo agregaríamos con un className="centrarTitulo" Así:
+
+---------------------------------------------------------------------
+                                                                    |
+import './App.css';
+
+function App() {
+
+  const elemento=<h1 className="centrarTitulo">Hola Mundo</h1>
+  return <div>{elemento}</div>
+}
+
+export default App;
+                                                                    |
+---------------------------------------------------------------------
+
+
+		DEVOLVER UN SEGUNDO ELEMENTO
+		
+		
+		hay dos formas
+
+		creando una función de JavaScript común y corriente
+		o una constante en la función app(Elemento)
+
+		recordemos que lo que esta dentro de la función App(){} son elementos que devuelven a html, lo que esta en la función suma es una función que solamente devuelve la suma (devuelve una función solamente)
+
+---------------------------------------------------------------------
+                                                                    |
+import './App.css';
+
+function App() {
+
+  const elemento=<h1 className="centrarTitulo">Hola Mundo</h1>
+  const elemento2=suma(7,5);
+  return <div>{elemento}</div>
+}
+
+function suma(a,b){
+  return a + b;
+}
+
+export default App;
+                                                                    |
+---------------------------------------------------------------------
+	
+		Si quisiéramos devolver el resultado del segundo elemento entonces habría que devolverlo con un elemento padre ejemplo el r eturn:
+
+
+---------------------------------------------------------------------
+                                                                    |
+import './App.css';
+
+function App() {
+
+  const elemento = <h1 className="centrarTitulo">Hola Mundo</h1>
+  const elemento2 = suma(7, 5);
+  return <div>
+            <div>{elemento}</div>
+            <div>{elemento2}</div>
+          </div>
+
+}
+
+function suma(a, b) {
+  return a + b;
+}
+
+export default App;
+                                                                    |
+---------------------------------------------------------------------
+
+
+
+
+
+EVENTOS HOOKS
+
+
+  EVENTO UseState
+
+    Para hacer eventos con un boton el codigo se vera algo parecido a este codigo a continuacion
+    hacemos una funcion anonima que va a darnos el resultado en un alert, ese alert se llama "botonPulsado"
+    la cual se la asignamos al boton con un onClick... ojo que comentamos la linea 277 donde aparece el dic de elemento2 para que no nos estorbe
+
+---------------------------------------------------------------------------------------------------------
+                                                                                                        |
+import './App.css';
+
+function App() {
+
+  const elemento = <h1 className='centrarTitulo'>Hola Mundo</h1>
+  const elemento2 = <h2>{suma(7, 5)}{/*El codigo de javscript debe ir entre llaves siempre*/}</h2>
+  return <div>
+    <button onClick={botonPulsado} style={{marginTop: "10px", marginLeft: "10px"}}>Púlsame</button>
+    <div>{elemento}</div>
+    {/* <div>{elemento2}</div> */}
+  </div>
+}
+
+const botonPulsado=()=>{
+  alert(suma(7,5));
+}
+
+function suma(a, b) {
+  return a + b;
+}
+
+export default App;
+                                                                                                        |
+---------------------------------------------------------------------------------------------------------
+                                                                                                        
+
+    Si se quiere que salga en el div que creamos anteriormente y no en el alert entonces tendriamos que hacer algo un poco diferente...
+    tendriamos que importar utilizar un useState(), la cual nos devolvera dos cosas un estado actual y una funcion para actualizar el estado veamos
+    
+---------------------------------------------------------------------------------------------------------
+                                                                                                        |
+import './App.css';
+import React, {useState} from "react"; //Aca importamos el useState el cual utilizaremos en las lineas siguientes
+
+function App() {
+
+  //Definir el estado para almacenar el resultado de la suma
+  const[resultado, setResultado]=useState(null); //las podemos llamar como sea... el null es para 
+                                                 // que cuando cargue la pantalla no aparezca ningun resultado
+
+  const elemento = <h1 className='centrarTitulo'>Hola Mundo</h1>
+  const elemento2 = <h2>{suma(7, 5)}{/*El codigo de javscript debe ir entre llaves siempre*/}</h2>
+
+  
+  const botonPulsado=()=>{  {/* creamos la funcion para que tenga el estado actual que esta en la linea 7 y 
+    luego la funcion que estamos haciendo para que actualice */}
+    const result=suma(7,5); {/* Hacemos la operacion creando una variable constante llamada result*/}
+    setResultado(result); {/* Hacemos la operacion y se la aplicamos al setResultado que llamamos 
+      en la linea para que actualice resultado la cual se llama luego en  la linea 26  */}
+  };
+
+
+  return <div>
+    <button onClick={botonPulsado} style={{marginTop: "10px", marginLeft: "10px"}}>Púlsame</button>
+    <div>{elemento}</div>
+    {/* <div>{elemento2}</div> */}
+    <div><h2>El resultado es: {resultado}</h2></div>   {/*acá usamos la variable de la linea 7*/}
+  </div>
+}
+
+function suma(a, b) {
+  return a + b;
+}
+
+export default App;
+                                                                                                        |
+---------------------------------------------------------------------------------------------------------
+
+        Si queremos hacer que se muestre el "resultado es:" solamente cuando se pulse el boton entonces añadimos a la linea 366 lo siguiente 
+        encerrando el <h2></h2> lo que decimos es con && que si el resultado no es nulo entonces devuelve lo que tiene a la derecha....
+
+---------------------------------------------------------------------------------------------------------
+                                                                                                        |
+import './App.css';
+import React, {useState} from "react";
+
+function App() {
+
+  //Definir el estado para almacenar el resultado de la suma
+  const[resultado, setResultado]=useState(null); //las podemos llamar como sea... el null es para 
+                                                 // que cuando cargue la pantalla no aparezca ningun resultado
+
+  const elemento = <h1 className='centrarTitulo'>Hola Mundo</h1>
+  {/*const elemento2 = <h2>{suma(7, 5)}</h2>*/} {/*El codigo de javscript debe ir entre llaves siempre*/}
+
+  
+  const botonPulsado=()=>{  {/* creamos la funcion para que tenga el estado actual que esta en la linea 7 y 
+                                luego la funcion que estamos haciendo para que actualice */}
+    const result=suma(7 , 5); {/* Hacemos la operacion creando una variable constante llamada result*/}
+    setResultado(result); {/* Hacemos la operacion y se la aplicamos al setResultado que llamamos 
+                              en la linea para que actualice resultado la cual se llama luego en  la linea 26  */}
+  };
+
+
+  return <div>
+    <button onClick={botonPulsado} style={{marginTop: "10px", marginLeft: "10px"}}>Púlsame</button>
+    <div>{elemento}</div>
+    {/* <div>{elemento2}</div> */}
+    <div>{resultado!=null && <h2>El resultado es: {resultado}</h2>}</div>   {/*acá usamos la variable de la linea 7*/}
+  </div>
+}
+
+function suma(a, b) {
+  return a + b;
+}
+
+export default App;
+                                                                                                        |
+---------------------------------------------------------------------------------------------------------
+    
+
+    EVENTO Ref
+
+      Realizaremos otra aplicacion de react en este curso, llamada "Tercera-app-evento-ref", instalamos todo lo necesario para 
+      poder empezar
+
+      corremos la app y una vez que vemos el icono de react haremos que el codigo quede así para empezar con este tutorial y 
+      empezar a utilizar el evento useRef ya que este hook lo que hace es que nos permite acceder directamente al DOM, este 
+      código a continuacion es como debemos tenerlo y es el que utilizaremos para hacer los botones del video y que este funcione
+      si damos play o se frene si damos pause
+            
+---------------------------------------------------------------------------------------------------------
+                                                                                                        |
+import './App.css';
+import React, {useRef} from 'react'; 
+                                                                                                        
+function App() {
+  return (
+    <div>
+
+
+
+    </div>
+  );                                                                                                                                                                                              
+}
+                                                                                                        
+export default App;
+                                                                                                        |
+---------------------------------------------------------------------------------------------------------
+
+  Una vez terminado el codigo para que se muestre el video que metimos en la carpeta que creamos en el src
+  llamada assets entonces sería este:
+
+---------------------------------------------------------------------------------------------------------
+                                                                                                        |
+import './App.css';
+import React, { useRef } from 'react';
+import video from "./assets/video.mp4";
+                                                                                                        
+function App() {
+const videoRef=useRef(null);
+                                                                                                        
+const videoPlay=()=>{
+  videoRef.current.play();
+};
+                                                                                                        
+const videoPause=()=>{
+videoRef.current.pause();
+}
+                                                                                                        
+return (
+  <div>
+     <video ref={videoRef} width="400">
+      <source src={video} type="video/mp4"></source>
+     </video>
+                                                                                                        
+    <div>
+     <button onClick={videoPlay}>Play</button>
+     <button onClick={videoPause}>Pause</button>
+    </div>
+                                                                                                        
+  </div>
+);
+                                                                                                        
+}
+                                                                                                        
+export default App;|
+                                                                                                        |
+---------------------------------------------------------------------------------------------------------
+
+  Para decidir cual usar entre useState o useRef... debemos saber para que lo vamos a ocupar en un principio
+  
+  UseState
+    * Para crear y gestionar el estado en componentes funcionales de React
+    * Para redimensionar un campo...
+    * Para hacer que aparezca un contenedor y que redimensione la hoja
+    * Para realizar un cambio que exige la renderizacion
+
+        Cuando usarlo:
+        ** Cuando se necesite hacer un cambio en los datos del estado para que provoque un re-render del componente.
+        ** Cada vez que se actualiza el estado usando la funcion proporcionada por useState, React vuelve a renderizar el componente.
+
+        Reactividad: useState SI es reactivo.. los camvios en el estado desencadenan una nueva renderizacion del componente
+
+        Persistencia: Mantiene el valor del estado entre renderizaciones
+
+        Sintaxis: [state, setState] = useState(estadoInicial)
+
+  useRef
+    * Se utiliza para crear una referencia mutable que persiste entre reenderizaciones.
+    * Se usa comunmente para acceder directamente al DOM o para mantener cualquier valor mutable que no necesite causar una nueva reenderizacion
+    * Si no tienes que reenderizar
+    * Para hacer cambios que no exijan la reenderizacion
+    * Que estos cambios no se muetran en la interfaz de usuario
+    * Que no cambie su estado o su contenido
+        
+        Cuando usarlo:
+        ** Cuando se necesite hacer una referencia mutable que no cause re-renderizaciones cuando cambia.
+        ** Es util para acceder a elementos del DOM, almacenar valores que no afectan al reenderizado
+        ** Para mantener una referencia a un valor entre renderizaciones sin causar una actualizacion del componente
+
+        Reactividad useRef NO es reactivo, cambiar el valor de la referencia no desencadena una nueva reenderizacion del componente
+
+        Persistencia: Mantiene el valor entre renderizaciones
+
+        Sintaxis: const ref = useRef(estadoInicial)
